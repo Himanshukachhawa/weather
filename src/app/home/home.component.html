@@ -1,0 +1,209 @@
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">
+            
+            </a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li><a  data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+                </a>
+            </li>            
+            <li class="dropdown">
+                <a  class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a ><i ></i> DASEBOARD <i></i></a>
+                  
+                </li>
+                <li>
+                    <a ><i class="fa fa-fw fa-star"></i>  USER <i></i></a>
+                    <ul id="submenu-2" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.2</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
+                    </ul>
+                </li>
+                <!-- <li>
+                    <a ><i class="fa fa-fw fa-user-plus"></i>  MENU 3</a>
+                </li>
+                <li>
+                    <a ><i class="fa fa-fw fa-paper-plane-o"></i> MENU 4</a>
+                </li>
+                <li>
+                    <a ><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
+                </li> -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12 well" id="content">
+                    <form class="form-horizontal" style="padding-top: 70px">
+                        <div class="form-group"> <!-- Date input -->
+                          <label class="control-label col-md-4">Select Country:</label>
+                          <div class="col-md-4">
+                          <select #Country name="Country" class="form-control">
+                            <option>Select country</option>
+                            <option value="India">India</option>
+                            </select>
+                          </div>
+                          
+                      </div>
+                      <div class="form-group"> <!-- Date input -->
+                        <label class="control-label col-md-4">Select State:</label>
+                        <div class="col-md-4">
+                        <select #State name="State" class="form-control">
+                          <option>Select State</option>
+                          <option value="Rajasthan">Rajasthan</option>
+                          </select>
+                        </div>
+                        
+                    </div>
+
+
+
+                        <div class="form-group">
+                          <label class="control-label col-md-4">Select City:</label>
+                          <div class="col-md-4">
+                            <select class="form control" #City >
+                            <option value="jaipur">jaipur</option>
+                            <option value="kota">kota</option>
+                            <option value="sikar">sikar</option>
+                            <option value="jodhpur">jodhpur</option>
+                            <option value="udaipur">udaipur</option>
+                            <option value="jaisalmair">jaisalmair</option>
+                            <option value="Bundi">Bundi</option>
+                          </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-4" for="pwd">Temprature:</label>
+                          <div class="col-md-4">
+                              <input type="file" name="myFile" accept="*.csv"(change)="fileupload($event)">
+                            <!-- <select [(ngModel)]="selectedOption" (ngModelChange)="convert(this.selectedOption)"  #sel2 name="temp" >
+                      <option>1</option>
+                      <option>3</option>
+                      <option>5</option>
+                      <option>7</option>
+                      <option>9</option>
+                      <option>11</option>
+                      <option>13</option>
+                      <option>15</option>
+                      <option>17</option>
+                      <option>19</option>
+                      <option>20</option>
+                      <option>23</option>
+                      <option>25</option>
+                      <option>27</option>
+                      <option>30</option>
+                      <option>32</option>
+                      <option>35</option>
+                      <option>38</option>
+                      <option>41</option>
+                      <option>43</option>
+                      <option>45</option>
+                      <option>47</option>
+                      <option>49</option>
+                      <option>51</option>
+                      <option>55</option>
+                      <option>58</option>
+                      <option>60</option>
+                      
+                      
+                      
+                      
+                      
+                      
+                            </select>          
+                             <input type="text" class="form-control" ng-model="inputvalue" #temp placeholder="Enter Temprature" name="temp" (onchange)="convert(inputvalue)" > -->
+                          </div>
+                        </div>
+                      
+                      
+                        <!-- <div class="form-group">
+                      <label class="control-label col-md-4">Weather:</label>
+                      <div class="col-md-4">
+                      <input type="text" class="form-control"  [(ngModel)]="inputVar" name="first"  >
+                      </div>
+                        </div> -->
+                       
+                        <div class="form-group"> <!-- Date input -->
+                          <label class="control-label col-md-4" for="date">Date:</label>
+                          <div class="col-md-4">
+                          <input class="form-control" #Date name="date" placeholder="MM/DD/YYY" type="Date"/>
+                        </div>
+                      </div>
+                      
+                       <!-- <div class="form-group"> 
+                        <label class="control-label col-md-4" for="time">Time:</label>
+                        <div class="col-md-4">
+                        <input class="form-control" #time name="time" placeholder="hh/mm/am/pm" type="time"/>
+                      </div>
+                      </div> -->
+                      
+                      <!-- <div class="form-group">
+                        <label class="control-label col-md-4" for="wea">Weather type:</label>
+                      <div class="col-md-4">
+                          <div class="radio">
+                              <label ><input type="radio" name="optradio" >Rain</label>
+                              <label><input type="radio" name="optradio" >Haze</label><br>
+                              <label><input type="radio" name="optradio"  >Clear</label>
+                              <label><input type="radio" name="optradio" >Cloudy</label>
+                      
+                      
+                      </div>
+                      </div>
+                      </div>
+                      
+                       -->
+                      
+                      <!-- <div class="form-group">
+                        <label class="control-label col-md-4" for="file">Style sheet:</label>
+                        <div class="col-md-4"> <input type="file" name="myFile" accept="*.csv"(change)="fileupload($event)"><br>
+                      </div>
+                      </div> -->
+                      
+                      
+                      
+                      
+                        <div class="form-group">  
+                          <label class="control-label col-md-4"></label>      
+                          <div class="col-md-4">
+                            <button type="submit" class="btn btn-default" (click)="submit(Country.value,State.value,City.value,Date.value)">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
