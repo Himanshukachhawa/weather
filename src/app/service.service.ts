@@ -13,6 +13,9 @@ export class ServiceService {
      return this.http.post(this.url+'/enter',s1);
     
     }
-   
+    remove(){
+      return this.http.delete(this.url+'/del');
+ 
+    }
   }
 

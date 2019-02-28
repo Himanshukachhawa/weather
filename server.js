@@ -66,18 +66,21 @@ res.status(404).send(error);
 
 
    app.post('/log',(req,res)=>{
+    console.log("hy");
  
    var body = _.pick(req.body,['username','password']);
  console.log(body.password);
 
     use.login(body.username,body.password).then((user)=>{
 
-           // return user.generateAuthToken().then((token)=>{
-           //  console.log("hy");
-            //  res.status(200).header('x-auth',token).json({
-              //     'status': true,
-                //   'users':user
-                 //})
+            return user.generateAuthToken().then((token)=>{
+             console.log("hy");
+              res.status(200).header('x-auth',token).json({
+
+                   'status': true,
+                   'users':user
+                 })
+})
 
 res.send(user);
       
@@ -87,6 +90,48 @@ res.send(user);
       });
 
   });
+   app.delete('/del',(req,res) => {
+  wea.findOneAndRemove().then((result)=>
+{
+  console.log("aagyo"); 
+  if(!result){
+    return res.status(404).send();
+   }
+   console.log(result);
+   res.status(200).send(result);
+   })
+   .catch((err)=>{
+    res.status(404).send();
+   }) ;
+});
+
+
+
+
+
+
+app.get('/find',(req,res)=> {
+  console.log("hello");
+  
+          console.log(req.query);
+           wea.findOne().then((docs)=>{
+     // console.log(pppp);
+      res.status(200).send(docs);
+      console.log(docs);
+    //   console.log(res.send(docs));
+
+
+   }).catch((err)=>{
+       res.status(400).send(err);
+   });
+ });
+
+
+
+
+
+
+
  let port = process.env.PORT || 3000;
   const server = app.listen(port, function(){
      console.log('Listening on port ' + port);

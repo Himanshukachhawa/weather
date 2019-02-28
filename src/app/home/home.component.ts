@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{User} from '../user';
 import { ServiceService } from '../service.service';
+import { ActivatedRoute, Params,Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,9 @@ export class HomeComponent implements OnInit {
   var:any;
   file;
   show:any;
+  first;
+  second:Subscription;
+
 convert()
 {
    console.log(this.selectedOption);
@@ -41,7 +46,7 @@ convert()
 
 
 
-  constructor(private se:ServiceService) {
+  constructor(private se:ServiceService,private router:Router) {
     
     
 
@@ -54,6 +59,7 @@ convert()
 data1;data2;data3;data4;data5 = [];tem;
 fileupload(data){
   this.file = data.target.files[0];
+  console.log(this.file);
   let fileReader = new FileReader(); 
 
   fileReader.onload = (data) => {
@@ -61,11 +67,25 @@ fileupload(data){
     this.data3=fileReader.result;
     this.data4=this.data3.split('\n');
     console.log(this.data4);
-  }
+  } 
   fileReader.readAsText(this.file);}
 
   submit(country,state,city,date)
   {
+    this.first= this.se.remove();
+    this.second = this.first.subscribe( (d)  =>{
+console.log(d);
+    },
+    (err) =>{
+      console.log(err);
+    },
+    ()=>{
+      console.log("done");
+    });
+
+
+
+    
    console.log(country,state,city,date);
     //console.log(dt2,dt3,dt4);
     for (let i = 0; i < this.data4.length; i++) 
@@ -78,6 +98,7 @@ fileupload(data){
     this.data1 = this.se.signin(this.use);
     this.data2 = this.data1.subscribe( (d) => {
       console.log(d);
+      
     },
      (err) => {
       console.log(err);
@@ -85,6 +106,8 @@ fileupload(data){
      () => {
       console.log("hy");
      });
+    
+     
   }
 
 

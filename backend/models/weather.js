@@ -26,8 +26,8 @@ date:{type:Date,
     },
 data:{
           type: [{
-             Time:{type:String},
-             Temperature:{ type:String}
+             Time:{type:Number},
+             Temperature:{ type:Number}
         }]
 
 }

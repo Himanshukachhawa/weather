@@ -6,18 +6,18 @@ var user= mongoose.Schema({
 	username:{
 			type:String,
 			minlength:3,
-			require:true
+			required:true
 	},
 	 pass:{
         type:String,
-        require:true,
+        required:true,
         minlength:6
     },
      email:{
         type:String,
         trim:true,
         minlength:1,
-        require:true,
+        required:true,
         unique:true,    
     },
 //     location:{
@@ -60,6 +60,7 @@ user.statics.login = function(username,pass){
                 console.log(User.pass);
                 if(result){
                     console.log("hello");
+                    
                     // console.log(result);
                    // console.log(user);
                     
@@ -84,7 +85,7 @@ user.methods.generateAuthToken = function () {
      user.tokens=token;
      console.log(user);
      //console.log("token call");
-     
+       
       return user.save().then(()=>{
        
         return token;

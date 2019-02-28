@@ -1,9 +1,9 @@
 export class User {
 
     constructor(
-        public country : String,
-        public state : String,
-        public city :String,
+        public country : string,
+        public state : string,
+        public city :string,
         public date:string,
         public data,
         
